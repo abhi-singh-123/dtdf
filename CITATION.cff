@@ -13,7 +13,7 @@ authors:
     orcid: "https://orcid.org/0009-0005-7443-0235"
     email: "kr0abhishek@gmail.com"
 version: "1.0.0"
-date-released: "2025-01-01"
+date-released: "2026-05-11"
 license: MIT
 repository-code: "https://github.com/abhi-singh-123/dtdf"
 preferred-citation:
@@ -24,4 +24,4 @@ preferred-citation:
       given-names: "Kumar"
       orcid: "https://orcid.org/0009-0005-7443-0235"
   journal: "IEEE Access"
-  year: 2025
+  year: 2026
