@@ -100,7 +100,7 @@ See [CHECKLIST.md](CHECKLIST.md) for a ready-to-use planning checklist. Print it
 
 This framework is described in full in the accompanying IEEE Access paper:
 
-> Kumar Abhishek, "Dharmik Test Design: A Framework for Software Quality Engineering Inspired by Vedic and Indian Mythological Archetypes," *IEEE Access*, 2025.
+> Kumar Abhishek, "Dharmik Test Design: A Framework for Software Quality Engineering Inspired by Vedic and Indian Mythological Archetypes," *IEEE Access*, 2026.
 
 ---
 
