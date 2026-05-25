@@ -1,0 +1,11 @@
+Navarasa Dimension,Test Count,Percentage,Classification Keywords
+Shringara (happy path),261,60.7%,"basic, simple, success, ok, happy, normal, get, post, put, json, output, format, display, response, header, param"
+Raudra (stress/load),31,7.2%,"timeout, stress, load, large, huge, slow, max, limit, many, multiple, size"
+Shanta (steady-state),30,7.0%,"session, persist, config, idle, stable, state, cookie, keep, pool"
+Karuna (edge-user),25,5.8%,"encoding, unicode, charset, binary, empty, null, none, missing, locale, zero, blank"
+Bhayanaka (fault injection),23,5.3%,"error, fail, invalid, broken, corrupt, exception, crash, refused, unavailable"
+Hasya (graceful degradation),20,4.7%,"warn, deprecat, fallback, default, graceful, soft, tolerate, ignore, compat"
+Bibhatsa (security),20,4.7%,"auth, unauthorized, forbidden, injection, malicious, credential, token, ssl, cert, secure"
+Vira (recovery),12,2.8%,"retry, recover, resume, follow, redirect, reconnect, fallback, rebuild"
+Adbhuta (boundary),8,1.9%,"boundary, edge, extreme, unusual, unexpected, special, weird, port, empty_value"
+Total,430,100%,

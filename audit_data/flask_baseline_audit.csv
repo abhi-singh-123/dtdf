@@ -1,0 +1,11 @@
+Navarasa Dimension,Test Count,Percentage
+Shringara (happy path),275,72.9%
+Bhayanaka (fault injection),32,8.5%
+Shanta (steady-state),24,6.4%
+Hasya (graceful degradation),10,2.7%
+Karuna (edge-user),10,2.7%
+Raudra (stress/load),10,2.7%
+Adbhuta (boundary),8,2.1%
+Bibhatsa (security),5,1.3%
+Vira (recovery),3,0.8%
+Total,377,100%

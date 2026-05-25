@@ -56,23 +56,27 @@ Diagnoses how testing effort is distributed across the test lifecycle:
 
 ## Empirical Validation
 
-DTDF was validated on [HTTPie CLI](https://github.com/httpie/cli), a widely used open-source HTTP client.
+DTDF was validated through Navarasa audits of three widely used open-source Python projects.
 
-**Baseline audit of 430 existing tests:**
+### Cross-Project Navarasa Distribution
 
-| Dimension | Tests | Coverage |
-|-----------|-------|----------|
-| Shringara | 261 | 60.7% |
-| Raudra | 31 | 7.2% |
-| Shanta | 30 | 7.0% |
-| Karuna | 25 | 5.8% |
-| Bhayanaka | 23 | 5.3% |
-| Hasya | 20 | 4.7% |
-| Bibhatsa | 20 | 4.7% |
-| Vira | 12 | 2.8% |
-| Adbhuta | 8 | 1.9% |
+| Navarasa Dimension | HTTPie (n=430) | Requests (n=345) | Flask (n=377) | Average |
+|---|---|---|---|---|
+| Shringara (happy path) | 60.7% | 71.9% | 72.9% | 68.5% |
+| Bhayanaka (fault injection) | 5.3% | 6.4% | 8.5% | 6.7% |
+| Bibhatsa (security) | 4.7% | 7.8% | 1.3% | 4.6% |
+| Raudra (stress/load) | 7.2% | 2.9% | 2.7% | 4.3% |
+| Shanta (steady-state) | 7.0% | 2.6% | 6.4% | 5.3% |
+| Karuna (edge-user) | 5.8% | 2.9% | 2.7% | 3.8% |
+| Hasya (graceful degrad.) | 4.7% | 1.4% | 2.7% | 2.9% |
+| Vira (recovery) | 2.8% | 3.8% | 0.8% | 2.5% |
+| Adbhuta (boundary) | 1.9% | 0.3% | 2.1% | 1.4% |
 
-**DTDF ideation results:** A single session targeting authentication, error handling, and CLI parsing produced 37 new tests across five underrepresented dimensions. The Vira-guided tests uncovered a specification gap: no existing test verified that timeout failures produce a distinct exit code (`ExitStatus.ERROR_TIMEOUT`) from generic errors, leaving that behavioral contract vulnerable to undetected regression.
+The pattern is consistent across all three projects: happy-path (Shringara) tests average 68.5% while boundary (Adbhuta) tests average just 1.4%. This skew holds across different project domains, architectures, and development teams.
+
+### DTDF Intervention on HTTPie CLI
+
+A single DTDF ideation session on HTTPie CLI produced 37 new tests across five underrepresented dimensions. Key finding: the Vira-guided tests uncovered a specification gap — no existing test verified that timeout failures produce a distinct exit code (`ExitStatus.ERROR_TIMEOUT`) from generic errors — leaving that behavioral contract vulnerable to undetected regression.
 
 ---
 
@@ -80,12 +84,48 @@ DTDF was validated on [HTTPie CLI](https://github.com/httpie/cli), a widely used
 
 ```
 dtdf/
-├── README.md              — This file
-├── CHECKLIST.md           — Printable Navarasa checklist for planning sessions
-├── CITATION.cff           — Citation file for academic use
-├── LICENSE                — MIT License
-└── tests/
-    └── test_dtdf_navarasa.py  — DTDF-guided tests written for HTTPie CLI validation
+├── README.md                          — This file
+├── CHECKLIST.md                       — Printable Navarasa checklist for planning sessions
+├── dtdf_audit.py                      — Run a Navarasa audit on any Python test suite
+├── CITATION.cff                       — Citation file for academic use
+├── LICENSE                            — MIT License
+├── tests/
+│   └── test_dtdf_navarasa.py          — DTDF-guided tests written for HTTPie CLI
+└── audit_data/
+    ├── README.md                      — Explanation of audit methodology
+    ├── cross_project_navarasa_audit.csv  — All three projects side by side
+    ├── httpie_baseline_audit.csv      — HTTPie CLI full audit (430 tests)
+    ├── requests_baseline_audit.csv    — Requests library full audit (345 tests)
+    └── flask_baseline_audit.csv       — Flask framework full audit (377 tests)
+```
+
+---
+
+## Running the Audit Tool
+
+Audit any Python test suite with one command:
+
+```bash
+python dtdf_audit.py /path/to/your/tests/ "Your Project Name"
+```
+
+Example output:
+```
+============================================================
+DTDF Navarasa Audit Report — Your Project
+============================================================
+Total tests audited: 430
+
+Dimension                      Count  Percent  Coverage Bar
+----------------------------------------------------------------------
+  Shringara                      261   60.7%  ██████████████████████████████
+  Raudra                          31    7.2%  ███
+  Shanta                          30    7.0%  ███
+  ...
+  Vira                            12    2.8%  █ ← GAP
+  Adbhuta                          8    1.9%  █ ← GAP
+
+Dimensions below 3% (potential gaps): Vira, Adbhuta
 ```
 
 ---
@@ -98,9 +138,9 @@ See [CHECKLIST.md](CHECKLIST.md) for a ready-to-use planning checklist. Print it
 
 ## Paper
 
-This framework is described in full in the accompanying IEEE Access paper:
+This framework is described in full in the accompanying paper:
 
-> Kumar Abhishek, "Dharmik Test Design: A Framework for Software Quality Engineering Inspired by Vedic and Indian Mythological Archetypes," *IEEE Access*, 2026.
+> Kumar Abhishek, "Dharmik Test Design: A Framework for Software Quality Engineering Grounded in Classical Indian Knowledge Systems," *Software Quality Journal*, Springer, 2026 (under review).
 
 ---
 
@@ -112,6 +152,6 @@ MIT License. See [LICENSE](LICENSE).
 
 ## Author
 
-Kumar Abhishek  
-Independent Researcher  
-ORCID: [0009-0005-7443-0235](https://orcid.org/0009-0005-7443-0235)  
+Kumar Abhishek
+Independent Researcher, USA
+ORCID: [0009-0005-7443-0235](https://orcid.org/0009-0005-7443-0235)
