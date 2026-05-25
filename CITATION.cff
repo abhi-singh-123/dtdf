@@ -4,24 +4,30 @@ type: software
 title: "Dharmik Test Design Framework (DTDF)"
 abstract: >
   A structured framework for software test scenario ideation grounded in
-  Vedic philosophy and Indian mythological archetypes. Includes the Navarasa
-  test dimensions, the Panchatantra Combinatorial Model, the Dharma-Adharma
-  Oracle Model, and the Trimurti Lifecycle Model.
+  classical Indian knowledge systems. Includes the Navarasa test design
+  checklist, cross-project audit data across three open-source projects
+  (1,152 tests), a reusable audit script, and DTDF-guided test cases
+  from the empirical validation study.
 authors:
   - family-names: "Abhishek"
     given-names: "Kumar"
     orcid: "https://orcid.org/0009-0005-7443-0235"
     email: "kr0abhishek@gmail.com"
 version: "1.0.0"
-date-released: "2026-05-11"
+date-released: "2026-05-25"
 license: MIT
+doi: "10.5281/zenodo.20387881"
 repository-code: "https://github.com/abhi-singh-123/dtdf"
+url: "https://doi.org/10.5281/zenodo.20387881"
 preferred-citation:
   type: article
-  title: "Dharmik Test Design: A Framework for Software Quality Engineering Inspired by Vedic and Indian Mythological Archetypes"
+  title: "Dharmik Test Design: A Framework for Software Quality Engineering Grounded in Classical Indian Knowledge Systems"
   authors:
     - family-names: "Abhishek"
       given-names: "Kumar"
       orcid: "https://orcid.org/0009-0005-7443-0235"
-  journal: "IEEE Access"
+  journal: "Software Quality Journal"
+  publisher:
+    name: "Springer Nature"
   year: 2026
+  status: "submitted"
