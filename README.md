@@ -56,23 +56,23 @@ Diagnoses how testing effort is distributed across the test lifecycle:
 
 ## Empirical Validation
 
-DTDF was validated through Navarasa audits of three widely used open-source Python projects.
+DTDF was validated through Navarasa audits of three widely used open-source Python projects using `dtdf_audit.py`.
 
 ### Cross-Project Navarasa Distribution
 
-| Navarasa Dimension | HTTPie (n=430) | Requests (n=345) | Flask (n=377) | Average |
+| Navarasa Dimension | HTTPie (n=430) | Requests (n=345) | Flask (n=376) | Average |
 |---|---|---|---|---|
-| Shringara (happy path) | 60.7% | 71.9% | 72.9% | 68.5% |
-| Bhayanaka (fault injection) | 5.3% | 6.4% | 8.5% | 6.7% |
-| Bibhatsa (security) | 4.7% | 7.8% | 1.3% | 4.6% |
-| Raudra (stress/load) | 7.2% | 2.9% | 2.7% | 4.3% |
-| Shanta (steady-state) | 7.0% | 2.6% | 6.4% | 5.3% |
-| Karuna (edge-user) | 5.8% | 2.9% | 2.7% | 3.8% |
-| Hasya (graceful degrad.) | 4.7% | 1.4% | 2.7% | 2.9% |
-| Vira (recovery) | 2.8% | 3.8% | 0.8% | 2.5% |
-| Adbhuta (boundary) | 1.9% | 0.3% | 2.1% | 1.4% |
+| Shringara (happy path) | 47.0% | 51.0% | 67.0% | 55.0% |
+| Bhayanaka (fault injection) | 6.5% | 7.5% | 11.2% | 8.4% |
+| Raudra (stress/load) | 9.1% | 5.2% | 3.7% | 6.0% |
+| Shanta (steady-state) | 7.9% | 9.6% | 7.2% | 8.2% |
+| Karuna (edge-user) | 10.0% | 7.2% | 3.2% | 6.8% |
+| Bibhatsa (security) | 6.5% | 9.3% | 1.6% | 5.8% |
+| Hasya (graceful degrad.) | 5.8% | 3.2% | 2.7% | 3.9% |
+| Vira (recovery) | 4.7% | 6.4% | 1.1% | 4.0% |
+| Adbhuta (boundary) | 2.6% | 0.6% | 2.4% | 1.8% |
 
-The pattern is consistent across all three projects: happy-path (Shringara) tests average 68.5% while boundary (Adbhuta) tests average just 1.4%. This skew holds across different project domains, architectures, and development teams.
+The pattern is consistent across all three projects: happy-path (Shringara) tests average 55.0% while boundary (Adbhuta) tests average just 1.8%. This skew holds across different project domains, architectures, and development teams.
 
 ### DTDF Intervention on HTTPie CLI
 
@@ -96,7 +96,7 @@ dtdf/
     ├── cross_project_navarasa_audit.csv  — All three projects side by side
     ├── httpie_baseline_audit.csv      — HTTPie CLI full audit (430 tests)
     ├── requests_baseline_audit.csv    — Requests library full audit (345 tests)
-    └── flask_baseline_audit.csv       — Flask framework full audit (377 tests)
+    └── flask_baseline_audit.csv       — Flask framework full audit (376 tests)
 ```
 
 ---
@@ -112,20 +112,23 @@ python dtdf_audit.py /path/to/your/tests/ "Your Project Name"
 Example output:
 ```
 ============================================================
-DTDF Navarasa Audit Report — Your Project
+DTDF Navarasa Audit Report — HTTPie CLI
 ============================================================
 Total tests audited: 430
 
 Dimension                      Count  Percent  Coverage Bar
 ----------------------------------------------------------------------
-  Shringara                      261   60.7%  ██████████████████████████████
-  Raudra                          31    7.2%  ███
-  Shanta                          30    7.0%  ███
-  ...
-  Vira                            12    2.8%  █ ← GAP
-  Adbhuta                          8    1.9%  █ ← GAP
+  Shringara                      202   47.0%  ███████████████████████
+  Karuna                          43   10.0%  █████
+  Raudra                          39    9.1%  ████
+  Shanta                          34    7.9%  ███
+  Bhayanaka                       28    6.5%  ███
+  Bibhatsa                        28    6.5%  ███
+  Hasya                           25    5.8%  ██
+  Vira                            20    4.7%  ██
+  Adbhuta                         11    2.6%  █ ← GAP
 
-Dimensions below 3% (potential gaps): Vira, Adbhuta
+Dimensions below 3% (potential gaps): Adbhuta
 ```
 
 ---
