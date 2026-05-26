@@ -44,3 +44,14 @@ Tests with no matching keywords were assigned to Shringara as the default catego
 ## Replication
 
 To replicate these audits, clone the respective repositories and apply the keyword matching rules above to all test function names in the test directories. The classification script used in this study is available in the root of this repository.
+
+## Important Note on Replication
+
+The audit numbers in the paper (Table 3) were produced using the original classification script with manual review of ambiguous cases. The `dtdf_audit.py` script in this repository uses the same keyword rules but applies them without manual override — it will produce slightly different numbers because:
+
+1. Some test names contain keywords from multiple dimensions — the script applies a priority rule while the original audit used manual judgment for ties
+2. The script is designed for practical use on new projects, not exact replication of the paper numbers
+
+The cross-project pattern (Shringara dominant, Adbhuta lowest) is consistent across both approaches. The exact percentages may vary by 2-5 percentage points depending on the classification method used.
+
+For exact replication of the paper's Table 3 and Table 4, use the CSV files in this folder which contain the verified audit results.

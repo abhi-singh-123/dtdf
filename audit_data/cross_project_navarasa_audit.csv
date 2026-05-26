@@ -1,10 +1,10 @@
-Navarasa Dimension,HTTPie CLI (n=430),Requests (n=345),Flask (n=377),Average
-Shringara (happy path),60.7%,71.9%,72.9%,68.5%
-Bhayanaka (fault injection),5.3%,6.4%,8.5%,6.7%
-Bibhatsa (security),4.7%,7.8%,1.3%,4.6%
-Raudra (stress/load),7.2%,2.9%,2.7%,4.3%
-Shanta (steady-state),7.0%,2.6%,6.4%,5.3%
-Karuna (edge-user),5.8%,2.9%,2.7%,3.8%
-Hasya (graceful degradation),4.7%,1.4%,2.7%,2.9%
-Vira (recovery),2.8%,3.8%,0.8%,2.5%
-Adbhuta (boundary),1.9%,0.3%,2.1%,1.4%
+Navarasa Dimension,HTTPie CLI (n=430),Requests (n=345),Flask (n=376),Average
+Shringara (happy path),47.0%,51.0%,67.0%,55.0%
+Bhayanaka (fault injection),6.5%,7.5%,11.2%,8.4%
+Raudra (stress/load),9.1%,5.2%,3.7%,6.0%
+Shanta (steady-state),7.9%,9.6%,7.2%,8.2%
+Karuna (edge-user),10.0%,7.2%,3.2%,6.8%
+Bibhatsa (security),6.5%,9.3%,1.6%,5.8%
+Hasya (graceful degradation),5.8%,3.2%,2.7%,3.9%
+Vira (recovery),4.7%,6.4%,1.1%,4.0%
+Adbhuta (boundary),2.6%,0.6%,2.4%,1.8%

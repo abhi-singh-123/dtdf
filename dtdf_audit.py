@@ -82,14 +82,31 @@ DIMENSION_DESCRIPTIONS = {
 
 
 def classify(test_name: str) -> str:
-    """Classify a test function name into a Navarasa dimension."""
+    """Classify a test function name into a Navarasa dimension.
+    
+    Priority order ensures specific dimensions override the default
+    happy-path (Shringara) classification when relevant keywords appear.
+    Non-Shringara dimensions are checked first; Shringara is the default
+    when no other dimension matches.
+    """
     name_lower = test_name.lower()
+    
+    # Score all dimensions
     scores = {
         rasa: sum(1 for kw in kws if kw in name_lower)
         for rasa, kws in NAVARASA.items()
     }
-    best = max(scores, key=scores.get)
-    return best if scores[best] > 0 else "Shringara"
+    
+    # Remove Shringara from competition — it is the default fallback
+    non_shringara = {r: s for r, s in scores.items() if r != "Shringara"}
+    best_non_shringara = max(non_shringara, key=non_shringara.get)
+    
+    # If any non-Shringara dimension has a match, prefer it
+    if non_shringara[best_non_shringara] > 0:
+        return best_non_shringara
+    
+    # Fall back to Shringara (happy path) as default
+    return "Shringara"
 
 
 def audit_directory(test_dir: str) -> dict:
