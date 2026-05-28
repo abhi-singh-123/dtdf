@@ -1,6 +1,6 @@
 # Dharmik Test Design Framework (DTDF)
 
-A structured framework for software test scenario ideation, grounded in Vedic philosophy and Indian mythological archetypes.
+A structured framework for software test scenario ideation, grounded in classical Indian knowledge systems.
 
 ---
 
