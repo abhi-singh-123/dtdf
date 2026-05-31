@@ -143,7 +143,7 @@ See [CHECKLIST.md](CHECKLIST.md) for a ready-to-use planning checklist. Print it
 
 This framework is described in full in the accompanying paper:
 
-> Kumar Abhishek, "Dharmik Test Design: A Framework for Software Quality Engineering Grounded in Classical Indian Knowledge Systems," *Software Quality Journal*, Springer, 2026 (under review).
+> Kumar Abhishek, "Dharmik Test Design: A Framework for Software Quality Engineering Grounded in Classical Indian Knowledge Systems"
 
 ---
 
